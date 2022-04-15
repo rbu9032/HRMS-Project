@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h6>Please Enter Email and Password</h6>
+        </div>
+          <form [formGroup]="myform" (ngSubmit)="loginApp()">
+            <div  class="form-group mb-3">
+              <label for="email">Email ID</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              <div *ngIf="myform.controls.email.touched && myform.controls.email.invalid">
+                <small *ngIf="myform.controls.email.errors.required" style="color:red">Email is Required</small>
+            </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="pwd">Password</label>
+              <input type="password" class="form-control" id="pwd" formControlName="pwd">
+              <div *ngIf="myform.controls.pwd.touched && myform.controls.pwd.invalid">
+                <small *ngIf="myform.controls.pwd.errors.required" style="color:red">Password is Required</small>
+            </div>
+             <br> 
+            <div class="text-center">
+            <button type="submit" class="bg-success" [disabled]="myform.invalid" style="color: #ffff;">Login</button></div>
+          </div>
+           <a style="color: #ffff;"  routerLink="/home">Back</a>
+          </form>
+       <br>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
